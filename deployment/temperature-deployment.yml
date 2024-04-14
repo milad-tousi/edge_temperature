@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temperature-processor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temperature-processor
+  template:
+    metadata:
+      labels:
+        app: temperature-processor
+    spec:
+      containers:
+      - name: temperature-processor
+        image: tousi/temperature-processor:v1
+        ports:
+        - containerPort: 8000
+
